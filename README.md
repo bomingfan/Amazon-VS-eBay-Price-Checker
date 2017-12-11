@@ -1,7 +1,7 @@
-# Group-Project-Price-Comparison
+# Amazon-VS-eBay-Price-Checker
 
 # Page Link
-https://bomingfan.github.io/Price-Comparison/.
+https://bomingfan.github.io/Amazon-VS-eBay-Price-Checker/
 
 # Tasks
 
