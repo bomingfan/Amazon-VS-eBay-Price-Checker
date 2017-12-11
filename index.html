@@ -1,68 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Price Comparison</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
 
-<!-- linking css -->
-<link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- linking css -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+  
 </head>
 
 <body>
-    <div class="container">   
-        <p>testing my branch</p>
-    
-              <div class="wrapper">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Price Comparison Tool</div>
-                        <div class="panel-body">
-        
-                            <form>
-                                <div class="form-group">
-                                    <label class="col-form-label" for="formGroupExampleInput">Enter Your Product</label>
-                                    <input type="text" class="form-control" id="enter-product" placeholder="Product Name">
-                                </div>
-                                
-                            </form>
-                            <a id="add-user" class="btn btn-primary" href="#" role="button">Compare</a>
-        
+    <div class="container">
+
+        <div class="wrapper">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Price Comparison Tool</div>
+                <div class="panel-body">
+
+                    <form>
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">Enter Your Product</label>
+                            <input type="text" class="form-control" id="enter-product" placeholder="Product Name">
                         </div>
-                    </div>
-        
-        
-                    <div class="jumbotron">
-                            <h1>Hello, I'm your Product!</h1>
-                            <p>Product Info/Description....</p>
-                            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more about this product</a></p>
-                    </div>
 
-                    <div class="wrapper">
-                            <div class="panel panel-default">
-                                    <div class="panel-body">
-                                      Vendor 1
-                                    </div>
-                                  </div>
-                                  <div class="panel panel-default">
-                                        <div class="panel-body">
-                                          Vendor 2
-                                        </div>
-                                      </div>
-                           
-                    </div>
-        
+                    </form>
+                    <a id="item-search" class="btn btn-primary" href="#" role="button">Compare</a>
+
                 </div>
+            </div>
+
+
+            <div class="jumbotron">
+                <h1>Hello, I'm your Product!</h1>
+                <p>Product Info/Description....</p>
+            </div>
+
+            <div class="wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="amazon">
+                        Vendor 1
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="ebay">
+                        Vendor 2
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+    </div>
 
-        <!-- linking app.js -->
-<script src="assets/javascript/app.js"></script>
+    <!-- linking app.js -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
-</html>
 
+</html>
