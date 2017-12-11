@@ -8,3 +8,7 @@ var config = {
     messagingSenderId: "284215947796"
   };
   firebase.initializeApp(config);
+
+  $("#item-search").on("click", function () {
+    $("#amazon").html("Your price here");
+  })
