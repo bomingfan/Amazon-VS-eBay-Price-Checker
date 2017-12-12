@@ -1,14 +1,38 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyBkv6FmC-BKlN-pOt5T4yTjX5dzb45rqc0",
-    authDomain: "groupfb120817.firebaseapp.com",
-    databaseURL: "https://groupfb120817.firebaseio.com",
-    projectId: "groupfb120817",
-    storageBucket: "groupfb120817.appspot.com",
-    messagingSenderId: "284215947796"
-  };
-  firebase.initializeApp(config);
+  apiKey: "AIzaSyBkv6FmC-BKlN-pOt5T4yTjX5dzb45rqc0",
+  authDomain: "groupfb120817.firebaseapp.com",
+  databaseURL: "https://groupfb120817.firebaseio.com",
+  projectId: "groupfb120817",
+  storageBucket: "groupfb120817.appspot.com",
+  messagingSenderId: "284215947796"
+};
+firebase.initializeApp(config);
 
-  $("#item-search").on("click", function () {
-    $("#amazon").html("Your price here");
-  })
+// Ebay API and AJAX items
+$("form").on("submit", function (event) {
+
+  event.preventDefault();
+
+  var appKey = "DrewZele-priceche-PRD-c5d8a3c47-8e4e1b10";
+  var item = $("#enter-product").val().trim();
+  var queryURL = "https://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=" + appKey +"&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + item + "&paginationInput.entriesPerPage=6&GLOBAL-ID=EBAY-US&siteid=0"
+
+  console.log(queryURL);
+  $.ajax({
+    dataType: "jsonp",
+    url: queryURL,
+    method: "GET"
+  }).done(function (response) {
+    console.log(response);
+
+    $("#product").html("<h2> eBay's: " + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].title["0"] + "</h2>");
+    $("#product").append("<img src = " + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].galleryURL["0"] + ">");
+    $("#ebay").html("<p> $" + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
+    
+  }).catch(function (error) {
+    console.log("status", error.status);
+    console.log(error);
+  });
+  
+})
