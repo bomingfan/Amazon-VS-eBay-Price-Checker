@@ -1,0 +1,17 @@
+.body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.page-header, h1.small{
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    background-color: rgba(5, 113, 255, 0.733);
+    border-color:  rgba(2, 73, 167, 0.726);
+    border-width: 5px;
+    margin: 15px;
+
+}
+    
+
+
+
