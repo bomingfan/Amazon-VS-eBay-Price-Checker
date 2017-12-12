@@ -1,7 +1,7 @@
 body{
     
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("../images/background.png");
+    background-image: url("../images/background2.jpg");
 }
 
 
@@ -24,6 +24,9 @@ body{
   
   .jumbotron{
     
+  }
+  .panel-default {
+      float: left;
   }
 
     
