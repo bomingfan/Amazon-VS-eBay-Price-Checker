@@ -1,37 +1,60 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyBkv6FmC-BKlN-pOt5T4yTjX5dzb45rqc0",
-    authDomain: "groupfb120817.firebaseapp.com",
-    databaseURL: "https://groupfb120817.firebaseio.com",
-    projectId: "groupfb120817",
-    storageBucket: "groupfb120817.appspot.com",
-    messagingSenderId: "284215947796"
-  };
-  firebase.initializeApp(config);
+  apiKey: "AIzaSyBkv6FmC-BKlN-pOt5T4yTjX5dzb45rqc0",
+  authDomain: "groupfb120817.firebaseapp.com",
+  databaseURL: "https://groupfb120817.firebaseio.com",
+  projectId: "groupfb120817",
+  storageBucket: "groupfb120817.appspot.com",
+  messagingSenderId: "284215947796"
+};
+firebase.initializeApp(config);
 
-  $("#item-search").on("click", function () {
-    $("#amazon").html("Your price here");
-  })
+// Ebay API and AJAX items
+$("form").on("submit", function (event) {
 
+  event.preventDefault();
 
-  // Ajax Call
+  var appKey = "DrewZele-priceche-PRD-c5d8a3c47-8e4e1b10";
+  var item = $("#enter-product").val().trim();
+  var queryURL = "https://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=" + appKey +"&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + item + "&paginationInput.entriesPerPage=6&GLOBAL-ID=EBAY-US&siteid=0"
 
-  queryURL= "http://api.walmartlabs.com/v1/items?apiKey=m293p2wqduce6kc3xusuz4ug&upc=035000521019";
-  
-  // var data = {
-  //   'AssociateTag': 'digitalfans0b-20',
-  //   'AWSAccessKeyId': 'AKIAIFTONKL2MBEGR3NA',
-  //   'Signature':'SSLm7L6lU0Iw3/soPpU7iCQ+mSYe5Ag/O1gvct0I'
-  // }
- 
+  console.log(queryURL);
   $.ajax({
-    datatype: "jsonp",
+    dataType: "jsonp",
     url: queryURL,
-    method: "get"
-    // Headers: {"X-Originating-Ip": "69.196.40.176"},
-}).done(function(res){
-  console.log(res);
-});
+    method: "GET"
+  }).done(function (response) {
+    console.log(response);
 
-// Key: m293p2wqduce6kc3xusuz4ug
+    $("#product").html("<h2> eBay's: " + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].title["0"] + "</h2>");
+    $("#product").append("<img src = " + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].galleryURL["0"] + ">");
+    $("#ebay").html("<p> $" + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
+    
+  }).catch(function (error) {
+    console.log("status", error.status);
+    console.log(error);
+  });
+  
+})
 
+
+// // Walmart Ajax Call
+
+//   queryURL= "http://api.walmartlabs.com/v1/items?apiKey=m293p2wqduce6kc3xusuz4ug&upc=035000521019";
+  
+//   // var data = {
+//   //   'AssociateTag': 'digitalfans0b-20',
+//   //   'AWSAccessKeyId': 'AKIAIFTONKL2MBEGR3NA',
+//   //   'Signature':'SSLm7L6lU0Iw3/soPpU7iCQ+mSYe5Ag/O1gvct0I'
+//   // }
+ 
+//   $.ajax({
+//     datatype: "jsonp",
+//     url: queryURL,
+//     method: "get"
+//     // Headers: {"X-Originating-Ip": "69.196.40.176"},
+// }).done(function(res){
+//   console.log(res);
+// });
+
+// // Key: m293p2wqduce6kc3xusuz4ug
