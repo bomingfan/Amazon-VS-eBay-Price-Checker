@@ -12,3 +12,26 @@ var config = {
   $("#item-search").on("click", function () {
     $("#amazon").html("Your price here");
   })
+
+
+  // Ajax Call
+
+  queryURL= "http://api.walmartlabs.com/v1/items?apiKey=m293p2wqduce6kc3xusuz4ug&upc=035000521019";
+  
+  // var data = {
+  //   'AssociateTag': 'digitalfans0b-20',
+  //   'AWSAccessKeyId': 'AKIAIFTONKL2MBEGR3NA',
+  //   'Signature':'SSLm7L6lU0Iw3/soPpU7iCQ+mSYe5Ag/O1gvct0I'
+  // }
+ 
+  $.ajax({
+    datatype: "jsonp",
+    url: queryURL,
+    method: "get"
+    // Headers: {"X-Originating-Ip": "69.196.40.176"},
+}).done(function(res){
+  console.log(res);
+});
+
+// Key: m293p2wqduce6kc3xusuz4ug
+
