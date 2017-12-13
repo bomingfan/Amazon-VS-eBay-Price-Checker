@@ -14,6 +14,8 @@ $("#item-search").on("click", function (event) {
 
   event.preventDefault();
 
+  $("#ebay").empty();
+
   var appKey = "DrewZele-priceche-PRD-c5d8a3c47-8e4e1b10";
   var item = $("#enter-product").val().trim();
   var queryURL = "https://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=" + appKey +"&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + item + "&paginationInput.entriesPerPage=10&GLOBAL-ID=EBAY-US&siteid=0"
@@ -31,9 +33,9 @@ $("#item-search").on("click", function (event) {
     for (i = 0; i < 9; i++) {
 
     $("#ebay").append("<h4>" + ebayItem.item[i].title["0"] + "</h4>");
-    $("#ebay").append("<img src = " + ebayItem.item[i].galleryURL["0"] + ">");
+    $("#ebay").append("<img src = " + ebayItem.item[i].galleryURL["0"] + " class='img-thumbnail'>");
     $("#ebay").append("<p> $" + ebayItem.item[i].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
-    $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + ">Click here for eBay page</a></p>")
+    $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + ">Click here for eBay page</a></p><br>")
     }
     
   }).catch(function (error) {
@@ -70,8 +72,8 @@ $("#item-search").on("click", function(event) {
   for (i = 0; i < res.items.length; i++) {
     
     var newDiv = $("<div>");
-    newDiv.html("<p>" + res.items[i].name + "</p>");
-    newDiv.append("<a href = " + res.items[i].productUrl + " target='_blank'><img src = " + res.items[i].thumbnailImage + "></a>");
+    newDiv.html("<h4>" + res.items[i].name + "</h4>");
+    newDiv.append("<a href = " + res.items[i].productUrl + " target='_blank'><img src = " + res.items[i].imageEntities["0"].mediumImage + " class='img-thumbnail'></a>");
     newDiv.append("<p>$" + res.items[i].salePrice + "</p>");
     newDiv.append("<a class='button' href = " + res.items[i].addToCartUrl + " target='_blank'>Add To Cart</a>");
     $("#walmart").append(newDiv);
