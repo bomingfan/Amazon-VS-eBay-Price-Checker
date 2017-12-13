@@ -13,15 +13,15 @@ Team Members: Marko Zezelj, Andrew Zelenka, Boming Fan, Adolfo Juarez & Clark Ph
 
 Project Description: Simple but elegant interface where a user enters a product.  When the user clicks “submit”, they see: 1) a detailed description of the product (including photos, specs, etc…) and 2) EBAY price & details VS Amazon price & details
 
-Sketch of Final Product - DONE
+Sketch of Final Product - assets/screenshot
 
 APIs to be Used: 
 EBAY https://developer.ebay.com/api-docs/buy/static/buy-landing.html
 &
-AMAZON https://aws.amazon.com/api-gateway/getting-started/
+Walmart https://developer.walmartlabs.com/
 
 Rough Breakdown of Tasks :  
 Adolfo & Marko front end /CSS/Bootstrap/Polish UI
 Boming & Andrew: JS working between HTML & APIs
-Boming: Amazon API
-Andrew: E-Bay
+Boming: Walmart API
+Andrew: E-Bay API
