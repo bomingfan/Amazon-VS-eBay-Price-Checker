@@ -35,17 +35,13 @@ body{
     
 }
 
-
 .form-control:focus {
     border-color: #FF6600;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(22, 19, 160, 0.6);
   }
   
-  .jumbotron{
-    
-  }
   .panel-default, .panel-heading.ebayBox, .panel-heading.walmartBox {
-      float: left;
+      text-align: center;
       background-color: rgba(38, 167, 102, 0.733);
   }
 
@@ -54,3 +50,6 @@ body{
     font-size: 60px;
   }
     
+  #ebay, #walmart {
+      background: whitesmoke;
+  }
