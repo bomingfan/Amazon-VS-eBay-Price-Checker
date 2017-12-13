@@ -1,7 +1,7 @@
-# Amazon-VS-eBay-Price-Checker
+# Walmart-VS-eBay-Price-Checker
 
 # Page Link
-https://bomingfan.github.io/Amazon-VS-eBay-Price-Checker/
+https://bomingfan.github.io/Walmart-VS-eBay-Price-Checker/
 
 # Tasks
 
