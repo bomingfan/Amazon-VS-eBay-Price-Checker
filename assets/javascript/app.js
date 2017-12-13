@@ -30,10 +30,10 @@ $("#item-search").on("click", function (event) {
 
     for (i = 0; i < ebayItem.item.length; i++) {
 
-    $("#ebay").html("<h2> eBay's: " + ebayItem.item[i].title["0"] + "</h2>");
+    $("#ebay").html("<h4>" + ebayItem.item[i].title["0"] + "</h4>");
     $("#ebay").append("<img src = " + ebayItem.item[i].galleryURL["0"] + ">");
-    $("#ebay").html("<p> $" + ebayItem.item[i].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
-
+    $("#ebay").append("<p> $" + ebayItem.item[i].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
+    $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + ">Click here for eBay page</a></p>")
     }
     
   }).catch(function (error) {
