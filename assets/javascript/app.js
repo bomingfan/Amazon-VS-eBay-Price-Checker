@@ -79,5 +79,24 @@ $("#item-search").on("click", function (event) {
 });
 
 
+// Create a variable to reference the database.
+var database = firebase.database();
 
-// 
+// Whenever a user clicks the submit-bid button
+$("#item-search").on("click", function(event) {
+  // Prevent form from submitting
+  event.preventDefault();
+
+  // Get the input values
+  var productName = $("#enter-product").val().trim();
+    // Save the new price in Firebase
+    database.ref().set({
+      productName: productName,
+      
+    });
+
+});
+
+
+
+
