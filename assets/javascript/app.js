@@ -16,7 +16,7 @@ $("#item-search").on("click", function (event) {
 
   var appKey = "DrewZele-priceche-PRD-c5d8a3c47-8e4e1b10";
   var item = $("#enter-product").val().trim();
-  var queryURL = "https://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=" + appKey +"&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + item + "&paginationInput.entriesPerPage=6&GLOBAL-ID=EBAY-US&siteid=0"
+  var queryURL = "https://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=" + appKey +"&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + item + "&paginationInput.entriesPerPage=10&GLOBAL-ID=EBAY-US&siteid=0"
 
   console.log(queryURL);
   $.ajax({
@@ -26,11 +26,11 @@ $("#item-search").on("click", function (event) {
   }).done(function (response) {
     console.log(response);
 
-    var ebayItem = response.findItemsByKeywordsResponse["0"].searchResult["0"]
+    var ebayItem = response.findItemsByKeywordsResponse[0].searchResult[0]
 
-    for (i = 0; i < ebayItem.item.length; i++) {
+    for (i = 0; i < 9; i++) {
 
-    $("#ebay").html("<h4>" + ebayItem.item[i].title["0"] + "</h4>");
+    $("#ebay").append("<h4>" + ebayItem.item[i].title["0"] + "</h4>");
     $("#ebay").append("<img src = " + ebayItem.item[i].galleryURL["0"] + ">");
     $("#ebay").append("<p> $" + ebayItem.item[i].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
     $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + ">Click here for eBay page</a></p>")
