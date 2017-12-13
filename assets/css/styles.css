@@ -40,14 +40,25 @@ body{
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(22, 19, 160, 0.6);
   }
   
+<<<<<<< HEAD
+
+
+  .panel-default {
+      float: left;
+=======
   .panel-default, .panel-heading.ebayBox, .panel-heading.walmartBox {
       text-align: center;
       background-color: rgba(38, 167, 102, 0.733);
+>>>>>>> a65486a155b15fa15b27ee093144b93b0dc7f9d3
   }
 
   .ebayBox, .walmartBox {
     font-family: 'Libre Barcode 128 Text', cursive;
     font-size: 60px;
+  }
+
+  .form {
+      border-color: blue;
   }
     
   #ebay, #walmart {
