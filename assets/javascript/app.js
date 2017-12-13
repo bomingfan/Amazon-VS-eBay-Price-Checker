@@ -26,9 +26,15 @@ $("#item-search").on("click", function (event) {
   }).done(function (response) {
     console.log(response);
 
-    $("#product").html("<h2> eBay's: " + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].title["0"] + "</h2>");
-    $("#product").append("<img src = " + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].galleryURL["0"] + ">");
-    $("#ebay").html("<p> $" + response.findItemsByKeywordsResponse["0"].searchResult["0"].item["0"].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
+    var ebayItem = response.findItemsByKeywordsResponse["0"].searchResult["0"]
+
+    for (i = 0; i < ebayItem.item.length; i++) {
+
+    $("#ebay").html("<h4>" + ebayItem.item[i].title["0"] + "</h4>");
+    $("#ebay").append("<img src = " + ebayItem.item[i].galleryURL["0"] + ">");
+    $("#ebay").append("<p> $" + ebayItem.item[i].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
+    $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + ">Click here for eBay page</a></p>")
+    }
     
   }).catch(function (error) {
     console.log("status", error.status);
