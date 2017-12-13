@@ -53,3 +53,15 @@ body{
   #ebay, #walmart {
       background: rgba(245, 245, 245, 0.616);
   }
+
+  .img-thumbnail { 
+    height: 130px;
+    width: 130px;
+    background-color: rgba(38, 167, 102, 0.733);
+  }
+  .img.img-thumbnail{
+    
+    background-color: rgba(38, 167, 102, 0.733);
+        padding: 5px;
+    
+  }
