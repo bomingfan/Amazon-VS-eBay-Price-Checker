@@ -6,7 +6,7 @@ body{
 
 
 
-.page-header, h1.small, #entry-panel, #product {
+.page-header, h1.small, #entry-panel, #product{
     text-align: center;
     color: whitesmoke;
     text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
@@ -24,6 +24,16 @@ body{
     border-width: 5px;
     /* margin: 15px;  */
 }
+.rowform1{
+    border-color:  rgba(2, 73, 167, 0.726);
+    border-width: 5px;
+}
+
+#enter-product{
+    width: 50%;
+    margin: 0 auto;
+    
+}
 
 
 .form-control:focus {
@@ -34,8 +44,9 @@ body{
   .jumbotron{
     
   }
-  .panel-default {
+  .panel-default, .panel-heading.ebayBox, .panel-heading.walmartBox {
       float: left;
+      background-color: rgba(38, 167, 102, 0.733);
   }
 
   .ebayBox, .walmartBox {
