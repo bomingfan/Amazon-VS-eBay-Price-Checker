@@ -6,7 +6,7 @@ body{
 
 
 
-.page-header, h1.small, #entry-panel, #product {
+.page-header, h1.small, #entry-panel, #product{
     text-align: center;
     color: whitesmoke;
     text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
@@ -24,17 +24,32 @@ body{
     border-width: 5px;
     /* margin: 15px;  */
 }
+.rowform1{
+    border-color:  rgba(2, 73, 167, 0.726);
+    border-width: 5px;
+}
 
+#enter-product{
+    width: 50%;
+    margin: 0 auto;
+    
+}
 
 .form-control:focus {
     border-color: #FF6600;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(22, 19, 160, 0.6);
   }
   
+<<<<<<< HEAD
 
 
   .panel-default {
       float: left;
+=======
+  .panel-default, .panel-heading.ebayBox, .panel-heading.walmartBox {
+      text-align: center;
+      background-color: rgba(38, 167, 102, 0.733);
+>>>>>>> a65486a155b15fa15b27ee093144b93b0dc7f9d3
   }
 
   .ebayBox, .walmartBox {
@@ -46,3 +61,6 @@ body{
       border-color: blue;
   }
     
+  #ebay, #walmart {
+      background: rgba(245, 245, 245, 0.616);
+  }
