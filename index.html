@@ -16,73 +16,74 @@
 
     <!-- linking css -->
     <link rel="stylesheet" href="assets/css/styles.css">
-  
+
 </head>
 
 <body>
-       
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3"></div>
             <div class="page-header">
-                    <h1>Price Comparison Tool 
-                        <!-- <br><small>Subtext for header</small> -->
-                    </h1>
-                  </div>
+                <h1>Price Comparison Tool
+                    <!-- <br><small>Subtext for header</small> -->
+                </h1>
+            </div>
         </div>
     </div>
-    
-           
-        
+
+
+
 
     <div class="container">
         <div class="wrapper">
             <div class="panel panel-primary">
-                   
+
                 <!-- <div class="panel-heading">Price Comparison Tool</div> -->
                 <div class="panel-body">
 
-                    <form>
-                        <div class="form-group">
-                            <label class="col-form-label" for="formGroupExampleInput">Enter Your Product</label>
-                            <input type="text" class="form-control" id="enter-product" placeholder="Product Name">
-                        </div>
-
+                    <form class="form-group">
+                        
+                        <label class="col-form-label" for="formGroupExampleInput">Enter Your Product</label>
+                        <input type="text" class="form-control" id="enter-product" placeholder="Product Name">
+                        <br>
+                        <input class="btn btn-primary" id="item-search" type="submit" value="Search">
+                
                     </form>
-                    <a id="item-search" class="btn btn-primary" href="#" role="button">Compare</a>
+                    
 
                 </div>
             </div>
 
 
-            <div class="jumbotron" id = "product">
+            <div class="jumbotron" id="product">
                 <h1>Hello, I'm your Product!</h1>
                 <p>Product Info/Description....</p>
             </div>
 
             <div class="wrapper">
-                    <div class="row">
-                            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-body" id="amazon">
-                        Vendor 1
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body" id="walmart">
+                                Vendor 1
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="ebay">
+                                    Vendor 2
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-body" id="ebay">
-                        Vendor 2
-                    </div>
-                    </div>
-                </div>
-            </div>
-            </div>
 
+            </div>
         </div>
-    </div>
 
-    <!-- linking app.js -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+        <!-- linking app.js -->
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
 
