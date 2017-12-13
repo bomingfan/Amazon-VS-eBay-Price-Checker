@@ -40,21 +40,27 @@ $("form").on("submit", function (event) {
 
 // // Walmart Ajax Call
 
-//   queryURL= "http://api.walmartlabs.com/v1/items?apiKey=m293p2wqduce6kc3xusuz4ug&upc=035000521019";
-  
-//   // var data = {
-//   //   'AssociateTag': 'digitalfans0b-20',
-//   //   'AWSAccessKeyId': 'AKIAIFTONKL2MBEGR3NA',
-//   //   'Signature':'SSLm7L6lU0Iw3/soPpU7iCQ+mSYe5Ag/O1gvct0I'
-//   // }
  
-//   $.ajax({
-//     datatype: "jsonp",
-//     url: queryURL,
-//     method: "get"
-//     // Headers: {"X-Originating-Ip": "69.196.40.176"},
-// }).done(function(res){
-//   console.log(res);
-// });
+$("#item-search").on("click", function (event) {
+    
+  event.preventDefault();
 
-// // Key: m293p2wqduce6kc3xusuz4ug
+  var Key = "m293p2wqduce6kc3xusuz4ug";
+  var product = $("#enter-product").val().trim();
+  queryURL= "http://api.walmartlabs.com/v1/search?apiKey=" + Key + "&query=" + product;
+  
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    // contentType: 'text/plain',
+    // xhrFields: {withCredentials: false},
+    dataType: "jsonp",
+    // Headers: {'Access-Control-Allow-Origin': '*'}
+}).done(function(res){
+  console.log(res);
+});
+});
+
+
+
+// 
