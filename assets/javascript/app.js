@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 // Ebay API and AJAX items
-$("form").on("submit", function (event) {
+$("#item-search").on("click", function (event) {
 
   event.preventDefault();
 
@@ -36,3 +36,46 @@ $("form").on("submit", function (event) {
   });
   
 })
+
+
+// Walmart Ajax Call
+
+ 
+$("#item-search").on("click", function(event) {
+  
+  $("#walmart").empty();
+
+  event.preventDefault();
+  
+  var Key = "m293p2wqduce6kc3xusuz4ug";
+  var product = $("#enter-product").val().trim();
+  queryURL= "http://api.walmartlabs.com/v1/search?apiKey=" + Key + "&query=" + product;
+  
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    // contentType: 'text/plain',
+    // xhrFields: {withCredentials: false},
+    dataType: "jsonp",
+    // Headers: {'Access-Control-Allow-Origin': '*'}
+}).done(function(res){
+  console.log(res);
+
+  for (i = 0; i < res.items.length; i++) {
+    
+    var newDiv = $("<div>");
+    newDiv.html("<p>" + res.items[i].name + "</p>");
+    newDiv.append("<a href = " + res.items[i].productUrl + " target='_blank'><img src = " + res.items[i].thumbnailImage + "></a>");
+    newDiv.append("<p>$" + res.items[i].salePrice + "</p>");
+    newDiv.append("<a class='button' href = " + res.items[i].addToCartUrl + " target='_blank'>Add To Cart</a>");
+    $("#walmart").append(newDiv);
+
+  };
+  
+  
+});
+});
+
+
+
+// 
