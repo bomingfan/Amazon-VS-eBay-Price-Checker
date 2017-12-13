@@ -55,7 +55,7 @@ $("#item-search").on("click", function(event) {
   
   var Key = "m293p2wqduce6kc3xusuz4ug";
   var product = $("#enter-product").val().trim();
-  queryURL= "http://api.walmartlabs.com/v1/search?apiKey=" + Key + "&query=" + product;
+  queryURL= "https://api.walmartlabs.com/v1/search?apiKey=" + Key + "&query=" + product;
   
   $.ajax({
     url: queryURL,

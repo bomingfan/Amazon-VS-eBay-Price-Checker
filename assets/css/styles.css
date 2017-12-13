@@ -29,4 +29,8 @@ body{
       float: left;
   }
 
+  .ebayBox, .walmartBox {
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-size: 60px;
+  }
     
