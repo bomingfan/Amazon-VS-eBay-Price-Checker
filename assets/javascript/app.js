@@ -94,55 +94,55 @@ function makeButton(input) {
 var database = firebase.database();
 
 // Whenever a user clicks the submit-bid button
-$("#item-search").on("click", function(event) {
+$("#item-search").on("click", function (event) {
   // Prevent form from submitting
   event.preventDefault();
 
   // Get the input values
   var productName = $("#enter-product").val().trim();
-  
-    // Save the new price in Firebase
-    database.ref().push({
-      productName: productName,    
-      dateAdded: firebase.database.ServerValue.TIMESTAMP
-    });
-    var element = document.querySelector("#buttons");
-    console.log("number of children: " + element.childElementCount);
-    // remove the first button
-if (element.childElementCount === 4) {
-  console.log("inside");
-  $("#buttons button:nth-last-child(4)").remove();
-}
-    
+
+  // Save the new price in Firebase
+  database.ref().push({
+    productName: productName,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
+
+
 });
 
 
 
 // Add them to the HTML in our table
 
-    // Firebase watcher + initial loader + order/limit HINT: .on("child_added"
-    database.ref().orderByChild("dateAdded").limitToLast(3).on("child_added", function (snapshot) {
-      // $('.buttons').empty();
-      
-      // storing the snapshot.val() in a variable for convenience
-      var sv = snapshot.val();
+// Firebase watcher + initial loader + order/limit HINT: .on("child_added"
+database.ref().orderByChild("dateAdded").limitToLast(3).on("child_added", function (snapshot) {
+  // $('.buttons').empty();
 
-      // Console.loging the last user's data
-      console.log(sv.productName);
-      console.log(sv.dateAdded);
-      
-     
-// make buttons
-      makeButton(sv.productName);
-   
+  // storing the snapshot.val() in a variable for convenience
+  var sv = snapshot.val();
+
+  // Console.loging the last user's data
+  console.log(sv.productName);
+  console.log(sv.dateAdded);
 
 
-// console.log($(".buttons:nth-child(4)").val());
+  // make buttons
+  makeButton(sv.productName);
 
-      // Handle the errors
-    }, function (errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    });
+  var element = document.querySelector("#buttons");
+  console.log("number of children: " + element.childElementCount);
+  // remove the first button
+  if (element.childElementCount === 4) {
+    console.log("inside");
+    $("#buttons button:nth-last-child(4)").remove();
+  }
+
+  // console.log($(".buttons:nth-child(4)").val());
+
+  // Handle the errors
+}, function (errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+});
 
 
 
