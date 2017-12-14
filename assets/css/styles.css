@@ -63,6 +63,7 @@ body, html{
   .ebayBox, .walmartBox {
     font-family: 'Libre Barcode 128 Text', cursive;
     font-size: 60px;
+    text-align: center;
   }
 
   .form {
@@ -71,6 +72,7 @@ body, html{
     
   #ebay, #walmart {
       background: rgba(245, 245, 245, 0.616);
+      text-align: center;
   }
 
 
