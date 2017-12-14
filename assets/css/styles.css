@@ -1,21 +1,24 @@
 body, html{
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgb(172, 169, 169);
     height: 100%;
     margin: 0;
 }
 
-#image, .container2{
-height: 50%;
-background-image: url("../images/background4.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+#topImage {
+    /* The image used */
+    background-image: url("https://wallpaperscraft.com/image/banknote_currency_money_numbers_50323_1920x1080.jpg");
+
+    /* Full height */
+    height: 50%; 
+
+    /* Center and scale the image nicely */
     background-position: center;
-    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.col-lg-6.col-lg-offset-3{
-    width: 100%;
-}
+
+
 
 .page-header, h1.small, #entry-panel, #product{
     text-align: center;
@@ -51,28 +54,25 @@ background-image: url("../images/background4.jpg");
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(22, 19, 160, 0.6);
   }
   
-  .panel-default, .panel-heading.ebayBox, .panel-heading.walmartBox {
-      text-align: center;
-      background-color: rgba(38, 167, 102, 0.733);
+
+
+  .panel-default {
+      float: left;
   }
 
   .ebayBox, .walmartBox {
     font-family: 'Libre Barcode 128 Text', cursive;
     font-size: 60px;
   }
+
+  .form {
+      border-color: blue;
+  }
     
   #ebay, #walmart {
       background: rgba(245, 245, 245, 0.616);
   }
 
-  .img-thumbnail { 
-    height: 130px;
-    width: 130px;
-    background-color: rgba(38, 167, 102, 0.733);
-  }
-  .img.img-thumbnail{
-    
-    background-color: rgba(38, 167, 102, 0.733);
-        padding: 5px;
-    
-  }
+
+
+
