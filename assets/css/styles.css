@@ -70,9 +70,8 @@ body, html{
   .ebayBox, .walmartBox {
     font-family: 'Libre Barcode 128 Text', cursive;
     font-size: 60px;
-
-    text-align: center;
-
+    
+    
   }
   #whitetext{
     color: whitesmoke;
@@ -83,9 +82,7 @@ body, html{
 }
     
   #ebay, #walmart {
-
     background-color: rgba(28, 29, 28, 0.733);
-
   }
   #count{
     
