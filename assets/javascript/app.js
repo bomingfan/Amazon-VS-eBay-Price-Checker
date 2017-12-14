@@ -93,7 +93,11 @@ function makeButton(input) {
 // Create a variable to reference the database.
 var database = firebase.database();
 
-// Whenever a user clicks the submit-bid button
+// Link to Firebase Database for viewer tracking
+var connectionsRef = database.ref("/connections")
+var connectedRef = database.ref(".info/connected")
+
+// Whenever a user clicks the item-search button
 $("#item-search").on("click", function (event) {
   // Prevent form from submitting
   event.preventDefault();
@@ -110,6 +114,26 @@ $("#item-search").on("click", function (event) {
 
 });
 
+
+// Add ourselves to presence list when online.
+connectedRef.on("value", function (snap) {
+  // If they are connected..
+  if (snap.val()) {
+    // Add user to the connections list.
+    var con = connectionsRef.push(true)
+
+    // Remove user from the connection list when they disconnect.
+    con.onDisconnect().remove()
+  }
+})
+
+// Number of online users is the number of objects in the presence list.
+connectionsRef.on("value", function (snap) {
+  
+    // Display the viewer count in the html.
+    // The number of online users is the number of children in the connections list.
+    $("#count").text(snap.numChildren())
+  })
 
 
 // Add them to the HTML in our table
