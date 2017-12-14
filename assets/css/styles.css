@@ -30,7 +30,6 @@ body, html{
 .jumbotron, h1.small, #entry-panel, #product{
     text-align: center;
     color: whitesmoke;
-    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
     background-color: rgba(28, 29, 28, 0.733);
     border-width: 5px;
     margin: 15px;
