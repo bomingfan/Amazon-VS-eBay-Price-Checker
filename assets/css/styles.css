@@ -3,29 +3,35 @@ body, html{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 100%;
     margin: 0;
+    background-color: rgba(177, 174, 174, 0.87);
 }
+#users{
+    float: right;
+    color: rgb(56, 248, 56);
+}
+
+
 
 #topImage {
     /* The image used */
     background-image: url("https://wallpaperscraft.com/image/banknote_currency_money_numbers_50323_1920x1080.jpg");
 
     /* Full height */
-    height: 50%; 
-
+    height: 418px;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-block-end: 50%;
 }
 
 
 
-.page-header, h1.small, #entry-panel, #product{
+.jumbotron, h1.small, #entry-panel, #product{
     text-align: center;
     color: whitesmoke;
     text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-    background-color: rgba(38, 167, 102, 0.733);
-    border-color:  rgba(2, 73, 167, 0.726);
+    background-color: rgba(28, 29, 28, 0.733);
     border-width: 5px;
     margin: 15px;
 }
@@ -33,7 +39,7 @@ body, html{
     text-align: center;
     color: whitesmoke;
     text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-    background-color: rgba(38, 167, 102, 0.733);
+    background-color: rgba(28, 29, 28, 0.733);
     border-color:  rgba(2, 73, 167, 0.726);
     border-width: 5px;
     /* margin: 15px;  */
@@ -58,20 +64,42 @@ body, html{
 
   .panel-default {
       float: left;
+      background-color: rgba(28, 29, 28, 0.733);
   }
 
   .ebayBox, .walmartBox {
     font-family: 'Libre Barcode 128 Text', cursive;
     font-size: 60px;
+    
+    
+  }
+  #whitetext{
+    color: whitesmoke;
   }
 
-  .form {
-      border-color: blue;
-  }
+.panel-heading.walmartBox, .panel-heading.ebayBox{
+    background-color: rgba(28, 29, 28, 0.733);
+}
     
   #ebay, #walmart {
-      background: rgba(245, 245, 245, 0.616);
+    background-color: rgba(28, 29, 28, 0.733);
   }
+  #count{
+    
+        color: rgba(252, 65, 65, 0.918);
+        font-weight: bold;
+
+}
+span{
+    
+    color: whitesmoke;
+    animation: blink 1s linear infinite;
+}
+@keyframes blink{
+0%{opacity: 0;}
+15%{opacity: .9;}
+100%{opacity: 1;}
+}
 
 
 
