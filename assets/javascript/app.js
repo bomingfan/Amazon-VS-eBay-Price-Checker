@@ -79,6 +79,17 @@ $("#item-search").on("click", function (event) {
 });
 
 
+// make a new button for them to click on later
+function makeButton(input) {
+  var newBtn = $("<button>");
+  newBtn.attr("type", "button");
+  newBtn.addClass("btn btn-primary");
+  newBtn.text(input);
+  newBtn.attr("data-search", input);
+  $('.buttons').append(newBtn);
+}
+
+
 // Create a variable to reference the database.
 var database = firebase.database();
 
@@ -89,13 +100,46 @@ $("#item-search").on("click", function(event) {
 
   // Get the input values
   var productName = $("#enter-product").val().trim();
+  makeButton(productName);
     // Save the new price in Firebase
-    database.ref().set({
-      productName: productName,
-      
+    database.ref().push({
+      productName: productName,    
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
-
 });
+
+
+
+// Add them to the HTML in our table
+
+database.ref().on("child_added", function (childSnapshot) {
+  
+              // Log everything that's coming out of snapshot
+              console.log(childSnapshot.val().productName);
+              console.log(childSnapshot.val().dateAdded);
+
+  
+  // var empMonths = month().diff(moment.unix(childSnapshot.val().startDate, "X"), "months");
+  // console.log(empMonths);
+  
+  //             // Change the HTML to reflect
+  //             var newTr = $("<tr>")
+  //             newTr.append("<td>" + childSnapshot.val().name + "</td>");
+  //             newTr.append("<td>" + childSnapshot.val().role + "</td>");
+  //             newTr.append("<td>" + childSnapshot.val().startDate + "</td>");
+  //             newTr.append("<td>" + 0 + "</td>");
+  //             newTr.append("<td>" + childSnapshot.val().monthlyRate + "</td>");
+  //             newTr.append("<td>" + 0 + "</td>");
+  //             $("tbody").append(newTr);
+  
+              // Handle the errors
+          }, function (errorObject) {
+              console.log("Errors handled: " + errorObject.code);
+          });
+  
+
+
+
 
 
 
