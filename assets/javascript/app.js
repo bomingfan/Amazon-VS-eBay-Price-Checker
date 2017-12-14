@@ -177,8 +177,3 @@ $(document).on("click", "button", function () {
   showInfo(itemName);
 
   });
-
-
-
-
-

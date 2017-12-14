@@ -80,11 +80,13 @@ body, html{
 
 .panel-heading.walmartBox, .panel-heading.ebayBox{
     background-color: rgba(28, 29, 28, 0.733);
+    text-align: center;
 }
     
   #ebay, #walmart {
-
+    color: whitesmoke;
     background-color: rgba(28, 29, 28, 0.733);
+    text-align: center;
 
   }
   #count{
