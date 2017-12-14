@@ -86,7 +86,7 @@ function makeButton(input) {
   newBtn.addClass("btn btn-primary");
   newBtn.text(input);
   newBtn.attr("data-search", input);
-  $('.buttons').append(newBtn);
+  $('#buttons').append(newBtn);
 }
 
 
@@ -100,43 +100,49 @@ $("#item-search").on("click", function(event) {
 
   // Get the input values
   var productName = $("#enter-product").val().trim();
-  makeButton(productName);
+  
     // Save the new price in Firebase
     database.ref().push({
       productName: productName,    
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+    var element = document.querySelector("#buttons");
+    console.log("number of children: " + element.childElementCount);
+    // remove the first button
+if (element.childElementCount === 4) {
+  console.log("inside");
+  $("#buttons button:nth-last-child(4)").remove();
+}
+    
 });
 
 
 
 // Add them to the HTML in our table
 
-database.ref().on("child_added", function (childSnapshot) {
-  
-              // Log everything that's coming out of snapshot
-              console.log(childSnapshot.val().productName);
-              console.log(childSnapshot.val().dateAdded);
+    // Firebase watcher + initial loader + order/limit HINT: .on("child_added"
+    database.ref().orderByChild("dateAdded").limitToLast(3).on("child_added", function (snapshot) {
+      // $('.buttons').empty();
+      
+      // storing the snapshot.val() in a variable for convenience
+      var sv = snapshot.val();
 
-  
-  // var empMonths = month().diff(moment.unix(childSnapshot.val().startDate, "X"), "months");
-  // console.log(empMonths);
-  
-  //             // Change the HTML to reflect
-  //             var newTr = $("<tr>")
-  //             newTr.append("<td>" + childSnapshot.val().name + "</td>");
-  //             newTr.append("<td>" + childSnapshot.val().role + "</td>");
-  //             newTr.append("<td>" + childSnapshot.val().startDate + "</td>");
-  //             newTr.append("<td>" + 0 + "</td>");
-  //             newTr.append("<td>" + childSnapshot.val().monthlyRate + "</td>");
-  //             newTr.append("<td>" + 0 + "</td>");
-  //             $("tbody").append(newTr);
-  
-              // Handle the errors
-          }, function (errorObject) {
-              console.log("Errors handled: " + errorObject.code);
-          });
-  
+      // Console.loging the last user's data
+      console.log(sv.productName);
+      console.log(sv.dateAdded);
+      
+     
+// make buttons
+      makeButton(sv.productName);
+   
+
+
+// console.log($(".buttons:nth-child(4)").val());
+
+      // Handle the errors
+    }, function (errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
 
 
 
