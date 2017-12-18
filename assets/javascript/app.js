@@ -36,7 +36,7 @@ function showInfo(item) {
       $("#ebay").append("<h4>" + ebayItem.item[i].title["0"] + "</h4>");
       $("#ebay").append("<img src = " + ebayItem.item[i].galleryURL["0"] + " class='img-thumbnail'>");
       $("#ebay").append("<p> $" + ebayItem.item[i].sellingStatus["0"].currentPrice["0"].__value__ + "</p>");
-      $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + ">Click here for eBay page</a></p><br>")
+      $("#ebay").append("<p><a href = " + ebayItem.item[i].viewItemURL["0"] + " target = _blank>Click here for eBay page</a></p><br>")
     }
 
   }).catch(function (error) {
